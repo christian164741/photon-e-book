@@ -1,23 +1,28 @@
 % ===========================================
-%  weltbuch.sty – Style-Datei für Buchprojekte
+%  weltbuch.sty – E-Book-Stil (Kindle/EPUB)
 %  Autor: Dipl.-Ing. (FH) Christian Weilharter
-%  Version: v1.1 – 2025-09-06
+%  Version: v2.1 – 2025-10-09 (E-Book: mit Kapitelnummern, ohne Seitenzahlen)
 % ===========================================
-% in weltbuch.sty (weit oben)
-
-
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{weltbuch}[2025/09/06 v1.1 Weltbuch-Stil]
+\ProvidesPackage{weltbuch}[2025/10/09 v2.1 Weltbuch-Stil (E-Book)]
 
 % -------------------------------------------------
 % Sprache & Typografie
 % -------------------------------------------------
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
-\usepackage[ngerman]{babel}
+\RequirePackage[ngerman]{babel}
 \RequirePackage{lmodern}
 \RequirePackage[protrusion=true,expansion=true]{microtype}
+\RequirePackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{3em}
+
+% -------------------------------------------------
+% Absatzformatierung für Reflow/E-Book
+% -------------------------------------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7em}
 
 % -------------------------------------------------
 % Mathe & Physik
@@ -28,12 +33,12 @@
 \RequirePackage{slashed}
 
 % -------------------------------------------------
-% Grafiken & Plots
+% Grafiken (schlank für E-Books)
 % -------------------------------------------------
 \RequirePackage{graphicx}
-\RequirePackage{tikz}
-\RequirePackage{pgfplots}
-\pgfplotsset{compat=newest} % immer aktuelle Version nutzen
+\newcommand{\ebookimage}[2][]{%
+	\begin{center}\includegraphics[width=\linewidth,#1]{#2}\end{center}%
+}
 
 % -------------------------------------------------
 % Tabellen, Floats, Captions
@@ -43,103 +48,78 @@
 \RequirePackage{caption}
 
 % -------------------------------------------------
-% Farben, Boxen
+% Farben & Boxen
 % -------------------------------------------------
 \RequirePackage{xcolor}
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{csquotes}
 \RequirePackage{etoolbox}
+\tcbset{breakable}
 \AtBeginEnvironment{tcolorbox}{\pretocmd{\tcbtitletext}{\ignorespaces}{}{}}
 
 % -------------------------------------------------
-% Inhaltsverzeichnis
+% Inhaltsverzeichnis – mit Nummern, ohne Seitenzahlen
 % -------------------------------------------------
-\RequirePackage{tocstyle}
-\usetocstyle{KOMAlike}
-\RequirePackage{tocloft}
+\setcounter{tocdepth}{3}
 
-% Abstände und Einrückungen im ToC
-\setlength{\cftbeforesecskip}{0.2em}
-\setlength{\cftbeforesubsecskip}{0.1em}
-\cftsetindents{chapter}{0em}{3.0em}
-\cftsetindents{section}{1.5em}{3.8em}
-\cftsetindents{subsection}{3.5em}{4.8em}
-\renewcommand{\cftchapnumwidth}{3em}
-\renewcommand{\cftsecnumwidth}{4em}
-\renewcommand{\cftsubsecnumwidth}{5em}
-
-% -------------------------------------------------
-% Kopf- und Fußzeilen (fancyhdr-Konfiguration)
-% -------------------------------------------------
-\RequirePackage{fancyhdr}
-
-% Grundlayout
-\pagestyle{fancy}
-\fancyhf{}  % alles leeren
-
-% Kopfzeilen (zweiseitig üblich):
-\fancyhead[LE]{\nouppercase{\leftmark}}   % gerade Seiten (links): Kapitel
-\fancyhead[RO]{\nouppercase{\rightmark}}  % ungerade Seiten (rechts): Abschnitt
-
-% Falls du stattdessen IMMER nur das Kapitel oben willst:
-% \fancyhead[LE,RO]{\nouppercase{\leftmark}}
-
-% Fußzeilen: Seitenzahl außen
-\fancyfoot[LE,RO]{\thepage}
-
-% Linie oben (Standard: 0.4pt)
-\renewcommand{\headrulewidth}{0.4pt}
-
-% Kapitel- und Abschnittsmarken (sprachneutral)
-\renewcommand{\chaptermark}[1]{%
-	\markboth{\textbf{\chaptername\ \thechapter\quad #1}}{}}
-\renewcommand{\sectionmark}[1]{%
-	\markright{\thesection\quad #1}}
-
-% Kopfhöhe (gegen Warnung „\headheight too small“)
-\setlength{\headheight}{14pt}
-
-% Kapitelanfangsseiten (plain) → ohne Kopf, nur Seitenzahl unten
-\fancypagestyle{plain}{%
-	\fancyhf{}
-	\fancyfoot[LE,RO]{\thepage}
-	\renewcommand{\headrulewidth}{0pt}
+\makeatletter
+% Seitenzahlen im ToC entfernen (funktioniert mit und ohne hyperref)
+\@ifpackageloaded{hyperref}{%
+	\let\H@oldcontentsline\contentsline
+	\renewcommand*\contentsline[4]{\H@oldcontentsline{#1}{#2}{}{#4}}%
+}{%
+	\let\oldcontentsline\contentsline
+	\renewcommand*\contentsline[3]{\oldcontentsline{#1}{#2}{}}%
 }
 
+% Punktleader entfernen (keine "..." zwischen Text und Seitenzahl)
+\renewcommand*\@dotsep{10000}
+
+% Einzüge (Nummern bleiben erhalten)
+\renewcommand*\l@chapter{\@dottedtocline{0}{0pt}{2.5em}}
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{2.5em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{3em}{3em}}
+\makeatother
+
 % -------------------------------------------------
-% Nummerierungen
+% Kopf-/Fußzeilen (keine Seitenzahlen auf Seiten)
+% -------------------------------------------------
+\makeatletter
+\pagestyle{empty}
+\let\ps@plain\ps@empty
+\makeatother
+
+% -------------------------------------------------
+% Nummerierungen (sichtbar im Text)
 % -------------------------------------------------
 \renewcommand*{\thechapter}{\Roman{chapter}}          % Kapitel: I, II, ...
 \renewcommand*{\thesection}{\arabic{section}}         % Section: 1, 2, ...
 \renewcommand*{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
-\setcounter{tocdepth}{5}
 
 % -------------------------------------------------
-% Index (einspaltig)
+% Index (nur \index{} erlauben)
 % -------------------------------------------------
 \RequirePackage{makeidx}
 \makeindex
-\RequirePackage[columns=1]{idxlayout}
 
 % -------------------------------------------------
-% Literaturverwaltung (BibLaTeX)
+% Literatur (BibLaTeX funktioniert im EPUB als Liste)
 % -------------------------------------------------
 \RequirePackage[backend=biber,style=numeric]{biblatex}
-\addbibresource{bib/literatur.bib} % gemeinsame Bibliographie-Datei für alle Projekte
-
-
-% -------------------------------------------------
-% Box-Stile
-% -------------------------------------------------
-\tcbset{physikbox/.style={ colback=blue!5!white,   colframe=blue!75!black,  fonttitle=\bfseries}}
-\tcbset{mathebox/.style={  colback=green!5!white,  colframe=green!50!black, fonttitle=\bfseries}}
-\tcbset{didaktikbox/.style={colback=yellow!5!white,colframe=yellow!50!black,fonttitle=\bfseries}}
-\tcbset{hypobox/.style={   colback=orange!5!white, colframe=orange!75!black,fonttitle=\bfseries}}
-\tcbset{hinweisbox/.style={colback=gray!10!white,  colframe=black!40!black, fonttitle=\bfseries}}
-\tcbset{historybox/.style={colback=brown!5!white,  colframe=brown!60!black, fonttitle=\bfseries}}
+\addbibresource{bib/literatur.bib}
 
 % -------------------------------------------------
-% Box-Makros (immer mit Label)
+% Box-Stile (leichtgewichtig, gut lesbar)
+% -------------------------------------------------
+\tcbset{physikbox/.style={  colback=blue!5!white,    colframe=blue!75!black,  fonttitle=\bfseries}}
+\tcbset{mathebox/.style={   colback=green!5!white,   colframe=green!50!black, fonttitle=\bfseries}}
+\tcbset{didaktikbox/.style={colback=yellow!5!white,  colframe=yellow!50!black,fonttitle=\bfseries}}
+\tcbset{hypobox/.style={    colback=orange!5!white,  colframe=orange!75!black,fonttitle=\bfseries}}
+\tcbset{hinweisbox/.style={ colback=gray!10!white,   colframe=black!40!black, fonttitle=\bfseries}}
+\tcbset{historybox/.style={ colback=brown!5!white,   colframe=brown!60!black, fonttitle=\bfseries}}
+
+% -------------------------------------------------
+% Box-Makros (mit Label)
 % -------------------------------------------------
 \newcommand{\PhysikBox}[3]{%
 	\begin{tcolorbox}[physikbox, title={#1}]
@@ -178,5 +158,4 @@
 	\end{tcolorbox}
 }
 
-% Ende der Datei
 \endinput

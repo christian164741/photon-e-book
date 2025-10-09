@@ -1,26 +1,28 @@
 \documentclass[12pt,oneside]{book}
+
+% Für EPUB/Kindle ist geometry egal; schadet aber nicht beim PDF-Test
 \usepackage[paperwidth=140mm,paperheight=210mm,margin=15mm]{geometry}
 
 
+% E-Book-Style (lädt u.a. hyperref – bitte NICHT nochmal laden)
 \usepackage{../styles/weltbuch-e-book}
 
-
-
-% Hyperref bitte im main.tex lassen (sollte fast zuletzt geladen werden)
-\usepackage{hyperref}
+% Linkfarben hier anpassen (hyperref ist schon geladen)
 \hypersetup{colorlinks=true, linkcolor=blue, citecolor=teal, urlcolor=magenta}
 
 \begin{document}
 	
+	
+	
 	% Optional: Titel-/Cover-Seite
 	% \begin{titlepage}
 		%   \centering
-		%   \includegraphics[width=\textwidth]{bilder/cover.png}
+		%   \includegraphics[width=\linewidth]{bilder/cover.png}
 		% \end{titlepage}
 	
 	\hyphenation{exis-tiert}
 	
-	% Vorwort, ToC
+	% Vorwort & Inhaltsverzeichnis
 	\include{vorwort}
 	\tableofcontents
 	
@@ -39,19 +41,13 @@
 	\include{appendix/Anhang-B}
 	\include{appendix/Anhang-C}
 	
-	% Literatur
-	% Literaturverzeichnis ins Inhaltsverzeichnis aufnehmen
-	\addcontentsline{toc}{chapter}{Literature} % oder {Literatur} für Deutsch
-	\printbibliography[title=Literature]       % [title=Literatur] für Deutsch
+	% Literatur – automatisch im ToC
+	\printbibliography[heading=bibintoc,title=Literatur]
 	
-	
-	% Index
-	\clearpage
-	\phantomsection
-	\addcontentsline{toc}{chapter}{Stichwortverzeichnis}
-	\renewcommand{\indexname}{Stichwortverzeichnis}
-	\cleardoublepage
-	\printindex
+	% Index – ohne erzwungene Seitenumbrüche
+%	\renewcommand{\indexname}{Stichwortverzeichnis}
+%	\addcontentsline{toc}{chapter}{Stichwortverzeichnis}
+%	\printindex
 	
 	% Impressum (optional)
 	% \include{impressum}

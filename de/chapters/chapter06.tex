@@ -19,8 +19,7 @@ Photonen\index{Photon} sind nicht nur fundamentale Träger quantenphysikalischer
 \subsubsection{Funktionsprinzip von Lasern}
 
 Der Begriff „Laser“\index{Laser} steht für \textbf{Light Amplification by Stimulated Emission of Radiation}\index{Light Amplification by Stimulated Emission of Radiation}. Ein Laser erzeugt Licht\index{Licht} nicht durch Glühen\index{Glühen} oder chemische Reaktionen\index{Chemische Reaktion}, sondern durch die gezielte Verstärkung von Photonen in einem aktiven Medium\index{Aktives Medium} – auf Basis der \emph{stimulierten Emission}\index{Stimulierte Emission}.
-\newpage
-\noindent
+
 Die drei zentralen Prozesse\index{Einstein-Prozesse}, die Einstein\index{Einstein, Albert} bereits 1916 theoretisch beschrieb, sind:
 
 \begin{itemize}
@@ -31,7 +30,7 @@ Die drei zentralen Prozesse\index{Einstein-Prozesse}, die Einstein\index{Einstei
 
 Für eine effektive Lichtverstärkung\index{Lichtverstärkung} muss die stimulierte Emission dominieren. Dies erfordert eine sogenannte \emph{Besetzungsinversion}\index{Besetzungsinversion} – also mehr Atome im angeregten als im Grundzustand, was unter normalen Bedingungen nicht gegeben ist.
 
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[physikbox, title={Stimulierte Emission als Grundlage des Lasers}]
 	\label{box:grundlagedeslaser}
 	Trifft ein Photon mit der passenden Energie auf ein angeregtes Atom, kann es dieses zur Aussendung eines zweiten Photons zwingen. Beide Photonen sind:
@@ -42,8 +41,7 @@ Für eine effektive Lichtverstärkung\index{Lichtverstärkung} muss die stimulie
 	\end{itemize}
 	Diese Eigenschaft erlaubt die kontrollierte Verstärkung von Licht – das Funktionsprinzip des Lasers.
 \end{tcolorbox}
-\newpage
-\noindent
+
 \subsubsection{Aufbau und Typen}
 
 Ein Laser besteht im Wesentlichen aus drei funktionalen Komponenten:
@@ -131,14 +129,14 @@ Nachteile sind die Empfindlichkeit gegenüber Magnetfeldern\index{Magnetfeld}, d
 Sie sind die Basis moderner photonischer Sensorarrays\index{Sensorarray} in der Forschung und Industrie.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{bilder/SPAD-PMT.png}
+	\includegraphics[width=0.9\linewidth]{bilder/SPAD-PMT.png}
 	\caption{Schematischer Vergleich eines SPAD (Single-Photon Avalanche Diode, links) und eines PMT (Photomultiplier Tube, rechts). }
 	\label{fig:spad_pmt}
 \end{figure}
 \begin{tcolorbox}[hinweisbox, title=Didaktischer Vergleich: SPAD vs. PMT]
 	\label{box:vergleich SPAD}
 	\small
-	\begin{tabular}{p{0.48\textwidth} | p{0.48\textwidth}}
+	\begin{tabular}{p{0.48\linewidth} | p{0.48\linewidth}}
 		\textbf{Single-Photon Avalanche Diode (SPAD)} & \textbf{Photomultiplier Tube (PMT)} \\
 		\hline
 		Halbleiterbauelement mit speziellem PN-Übergang\index{PN-Übergang}. & Vakuumröhre\index{Vakuumröhre} mit Photokathode und Verstärkungsstufen. \\
@@ -159,7 +157,7 @@ Sie sind die Basis moderner photonischer Sensorarrays\index{Sensorarray} in der 
 	\small
 	In einer \textbf{Avalanche-Lawine} (engl. avalanche breakdown) erzeugt ein freies Elektron im starken elektrischen Feld\index{Elektrisches Feld} eines Halbleiters durch Stoßionisation\index{Stoßionisation} weitere Elektronen. Dieser Prozess vervielfacht sich lawinenartig und führt zu einem messbaren Stromimpuls\index{Stromimpuls} – der Nachweis eines einzelnen Photons ist so möglich.
 \end{tcolorbox}
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[didaktikbox, title=Begriffserklärung: Szintillator]
 	\label{box:szintillator}
 	\small
@@ -170,7 +168,7 @@ Sie sind die Basis moderner photonischer Sensorarrays\index{Sensorarray} in der 
 \subsubsection{Einzelphotonenzählung und Quanteneffizienz\index{Einzelphotonenzählung}\index{Quanteneffizienz}}
 
 Die Fähigkeit, \textbf{einzelne Photonen zu detektieren}\index{Photon} ist ein Meilenstein in der Quantentechnologie\index{Quantentechnologie}. Dabei ist nicht nur das „Zählen“ entscheidend, sondern auch die \textbf{Quanteneffizienz}\index{Quanteneffizienz}, also der Anteil der einfallenden Photonen, die tatsächlich ein messbares Signal erzeugen.
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[physikbox, title=Physikalische Begriffe]
 	\label{box:begriffe}
 	\small
@@ -181,8 +179,7 @@ Die Fähigkeit, \textbf{einzelne Photonen zu detektieren}\index{Photon} ist ein 
 \end{tcolorbox}
 
 Technisch kommen dabei meist SPADs\index{SPAD} oder supraleitende Nanodetektoren\index{Supraleitender Nanodetektor} zum Einsatz. Letztere erreichen Quanteneffizienzen nahe 100\%, sind aber kryogen\index{Kryotechnik} zu betreiben.
-\newpage
-\noindent
+
 \subsubsection*{Wie funktioniert Einzelphotonenzählung?}
 \phantomsection
 Bei der Einzelphotonenzählung wird jeder einzelne Photonenimpuls als diskretes Ereignis registriert. Der Detektor (z.\,B. ein SPAD) erzeugt bei Eintreffen eines Photons einen elektrischen Impuls – typischerweise eine kurze Spannungs- oder Stromspitze. Diese Impulse werden elektronisch ausgewertet:
@@ -199,7 +196,7 @@ Damit dies zuverlässig funktioniert, müssen die Impulse:
 	\item in der Zeit klar voneinander unterscheidbar sein (Totzeit\index{Totzeit} beachten),
 	\item und dürfen nicht durch \textbf{thermisches Rauschen}\index{Thermisches Rauschen} oder Dunkelstrom\index{Dunkelstrom} verwechselt werden.
 \end{itemize}
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[didaktikbox, title=Was zählt als Photon? ]
 	\label{box:photonenzaehlung}
 	\small
@@ -233,7 +230,7 @@ Photonen spielen eine zentrale Rolle in vielen bildgebenden Verfahren der modern
 \textbf{Computertomographie (CT)}\index{Computertomographie (CT)} erweitert diese Technik, indem sie aus vielen Röntgenprojektionen ein 3D-Bild rekonstruiert. Hierfür werden rotierende Röntgenquellen und Detektorarrays verwendet.
 
 \textbf{Positronen-Emissions-Tomographie (PET)}\index{Positronen-Emissions-Tomographie (PET)} nutzt einen anderen Mechanismus: Radiopharmaka\index{Radiopharmakon} emittieren Positronen\index{Positron}, die mit Elektronen\index{Elektron} annihilieren – dabei entstehen zwei Photonen mit einer Energie von \SI{511}{keV}, die in entgegengesetzten Richtungen ausgesendet und durch Ringdetektoren erfasst werden. Aus der Koinzidenz der Detektion wird der Ursprungsort rekonstruiert.
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[physikbox, title=Photonen bei der PET]
 	\label{box:PET}
 	\small
@@ -241,7 +238,7 @@ Photonen spielen eine zentrale Rolle in vielen bildgebenden Verfahren der modern
 \end{tcolorbox}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{bilder/petscan.png}
+	\includegraphics[width=0.85\linewidth]{bilder/petscan.png}
 	\caption{Prinzip der Positronen-Emissions-Tomographie (PET): Ein verabreichtes Radiopharmakon emittiert ein Positron, das mit einem Elektron annihiliert. Dabei entstehen zwei Gamma-Photonen mit je \SI{511}{keV}, die in entgegengesetzten Richtungen ausgesendet und von Detektoren im PET-Ring registriert werden. Aus der Koinzidenz der Signale wird der Ursprungsort rekonstruiert.}
 	\label{fig:pet_prinzip}
 \end{figure}
@@ -250,7 +247,7 @@ Photonen spielen eine zentrale Rolle in vielen bildgebenden Verfahren der modern
 	\small
 	Bei der \textbf{Annihilation} treffen ein Teilchen und sein Antiteilchen aufeinander und vernichten sich. Ihre Masse wird vollständig in Energie umgewandelt – meist in Form von Photonen. In der PET entsteht bei der Annihilation eines Elektrons mit einem Positron ein Photon-Paar mit je \SI{511}{keV}.
 \end{tcolorbox}
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[didaktikbox, title=Begriffserklärung: Radiopharmakon]
 	\label{box:radiopharmakon}
 	\small
@@ -264,7 +261,7 @@ Im Gegensatz zur ionisierenden Strahlung setzen diese Verfahren auf sichtbares o
 \textbf{Diffuse optische Tomographie (DOT)}\index{Diffuse optische Tomographie (DOT)} verwendet Lichtquellen und Detektoren auf der Hautoberfläche. Die Photonen durchdringen das Gewebe, werden gestreut und absorbiert. Aus der Lichtverteilung kann auf die optischen Eigenschaften im Inneren geschlossen werden.
 
 \textbf{Fluoreszenzbildgebung}\index{Fluoreszenzbildgebung} nutzt Substanzen (Fluorophore\index{Fluorophor}), die durch Licht angeregt werden und in einer anderen Wellenlänge wieder emittieren. Diese Methode erlaubt z.\,B. die Darstellung molekularer Prozesse oder Tumormarker.
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[didaktikbox, title=Vorteil optischer Verfahren]
 	\label{box:optisches Verfahren}
 	\small
@@ -279,8 +276,7 @@ Laser\index{Laser} werden sowohl zur \textbf{Bildgebung} als auch zur \textbf{Ge
 	\item \textbf{Diagnostisch:} Konfokale Laser-Scanning-Mikroskopie\index{Konfokale Laser-Scanning-Mikroskopie}, optische Kohärenztomographie (OCT)\index{Optische Kohärenztomographie (OCT)}, Spektroskopie\index{Spektroskopie}.
 	\item \textbf{Chirurgisch:} Gewebeschnitt, Koagulation, Ablation – je nach Wellenlänge, Pulsdauer und Leistung.
 \end{itemize}
-\newpage
-\noindent
+
 Laserchirurgie\index{Laserchirurgie} nutzt die präzise Fokussierung von Photonen zur gezielten Gewebeeinwirkung ohne mechanische Belastung. Typische Anwendungen sind:
 
 \begin{itemize}
@@ -297,7 +293,7 @@ Laserchirurgie\index{Laserchirurgie} nutzt die präzise Fokussierung von Photone
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{bilder/oct.png}
+	\includegraphics[width=0.85\linewidth]{bilder/oct.png}
 	\caption{Schematische Darstellung der optischen Kohärenztomographie (OCT): Licht einer breitbandigen Quelle wird durch einen Strahlteiler aufgeteilt. Ein Teil trifft auf einen beweglichen Referenzspiegel (Referenzarm), der andere auf das zu untersuchende Gewebe (Sample). Die reflektierten Lichtanteile interferieren, und aus den Interferenzmustern wird das Tiefenprofil rekonstruiert. Das Ergebnis ist ein hochauflösendes Bild, z.\,B. der Netzhaut.}
 	\label{fig:oct_prinzip}
 \end{figure}
@@ -338,7 +334,7 @@ Vorteile:
 \end{itemize}
 
 \textbf{Optische Netzwerke} nutzen Wellenlängenmultiplexing (DWDM), Verstärker (EDFA) und modulierte Lasersysteme, um große Datenmengen parallel und effizient zu übertragen – von Backbone-Netzen bis hin zu Glasfaseranschlüssen im Haus.
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[physikbox, title=Totalreflexion in Glasfasern]
 	\label{box:glasfaser}
 	\small
@@ -346,7 +342,7 @@ Vorteile:
 \end{tcolorbox}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{bilder/glasfaser.png}
+	\includegraphics[width=0.8\linewidth]{bilder/glasfaser.png}
 	\caption{Schematische Darstellung der Totalreflexion in einer Glasfaser: Das Licht (Photonen) wird im höherbrechenden Kern geführt und an der Grenzfläche zum Mantel (Cladding) vollständig reflektiert. So bleibt das Licht auch über große Strecken im Kern „gefangen“.}
 	\label{fig:totalreflexion}
 \end{figure}
@@ -370,7 +366,7 @@ Die \textbf{Quantenkommunikation} nutzt quantenmechanische Zustände von Photone
 
 \textbf{BB84} ist das erste und bekannteste QKD-Protokoll. Es nutzt zufällige Polarisationen und Basiswechsel zur Erzeugung eines Schlüssels, der anschließend über einen klassischen Kanal verifiziert wird.
 
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[didaktikbox, title=Wie funktioniert QKD (z.\,B. BB84)?] \index{QKD!BB84}\index{Quantenkommunikation!BB84}
 	\label{box:wie funktioniert QKD}
 	\small
@@ -416,7 +412,7 @@ Teleskope und Detektoren auf der Erde und im Weltall messen Photonen verschieden
 
 Die Analyse dieser Photonen liefert Informationen über Temperatur, Bewegung (Dopplerverschiebung), Zusammensetzung und Entfernung kosmischer Objekte.
 
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[physikbox, title=Warum kommen manche Photonen nicht auf der Erde an?] \index{Erdatmosphäre!Photonenabsorption}\index{Photonen!Erdatmosphäre}
 	\label{box:photonen auf erde}
 	\small
@@ -437,7 +433,7 @@ Die Analyse dieser Photonen liefert Informationen über Temperatur, Bewegung (Do
 - \textbf{Interferometrie} kombiniert mehrere Teleskope zu einem virtuellen Riesenteleskop mit extrem hoher Winkelauflösung.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{bilder/Teleskop.png}
+	\includegraphics[width=0.9\linewidth]{bilder/Teleskop.png}
 	\caption{Schematische Darstellung eines Teleskops mit adaptiver Optik. Ein Wellenfrontsensor analysiert Verzerrungen durch die Atmosphäre. Eine deformierbare Spiegeloberfläche korrigiert diese in Echtzeit, sodass ein scharfes Bild entsteht.}
 	\label{fig:adaptive_optik}
 \end{figure}
@@ -454,8 +450,8 @@ Die Analyse dieser Photonen liefert Informationen über Temperatur, Bewegung (Do
 \end{tcolorbox}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{bilder/emissionslinien.png}
-	\caption{Emission von Strahlungslinien eines glühenden \newline Wasserstoffgases.}
+	\includegraphics[width=0.9\linewidth]{bilder/emissionslinien.png}
+	\caption{Emission von Strahlungslinien eines glühenden  Wasserstoffgases.}
 	\label{fig:emission_hydrogen}
 \end{figure}
 
@@ -483,7 +479,7 @@ Gravitationswellen sind fundamentale Verzerrungen der Raumzeit\index{Raumzeit} �
 \vspace{0.5em}
 \textbf{LIGO, Virgo und andere Gravitationswellen-Detektoren} nutzen kilometerlange Laserinterferometer, um winzige Veränderungen der Raumzeit zu messen. Dabei werden Laserstrahlen (bestehend aus kohärenten Photonen) in zwei senkrecht zueinander verlaufende Arme gesendet, an Spiegeln reflektiert und am Ausgang überlagert. Eine vorbeiziehende Gravitationswelle verändert minimal die Armlängen – und damit das Interferenzmuster.
 
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[physikbox, title=Photonen als Messwerkzeug für Raumkrümmung]
 	\label{box:messwerkzeug}
 	\small
@@ -495,7 +491,7 @@ Diese Technik beruht auf der Interferenz\index{Interferenz} kohärenter Lichtwel
 \vspace{0.5em}
 Dank dieser photonengestützten Präzisionsmessung wurden erstmals Ereignisse wie die Verschmelzung Schwarzer Löcher, die Kollision von Neutronensternen\index{Neutronenstern} oder Spuren des kosmischen Gravitationshintergrunds\index{Kosmischer Gravitationshintergrund} experimentell nachgewiesen. Photonen machen also sichtbar, was ansonsten jenseits direkter Beobachtung läge – ein weiterer Beleg für ihre zentrale Rolle in der modernen Physik.
 
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[didaktikbox, title=Wie funktioniert ein Interferometer? \label{box:interferometer}]
 	\small
 	Ein Interferometer nutzt das Prinzip der Überlagerung (Interferenz) von Lichtwellen, um kleinste Längenunterschiede sichtbar zu machen. 
@@ -510,7 +506,7 @@ Dank dieser photonengestützten Präzisionsmessung wurden erstmals Ereignisse wi
 	So können selbst winzige Längenänderungen – kleiner als ein Atomdurchmesser – durch die Analyse der Lichtintensität am Detektor erkannt werden. Das Licht dient dabei als präzise „Messlatte“ im Raum.
 \end{tcolorbox}
 
-\vspace{1em}
+\medskip
 \begin{tcolorbox}[didaktikbox, title=Warum sind Photonen so genau messbar? \label{box:photonen_genau}]
 	\small
 	Photonen sind ideale Messwerkzeuge – aus mehreren Gründen:
